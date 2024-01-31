@@ -41,12 +41,12 @@ public class ViewportUtils {
         renderer.setColor(Color.WHITE);
 
         // Drawing vertical lines
-        for (int x = -doubleWorldWidth; x < doubleWorldWidth; x+= cellSize) {
+        for (int x = -doubleWorldWidth; x <= doubleWorldWidth; x+= cellSize) {
             renderer.line(x, -doubleWorldHeight, x, doubleWorldHeight);
         }
 
         // Drawing Horizontal lines
-        for (int y = -doubleWorldHeight; y < doubleWorldHeight; y+= cellSize) {
+        for (int y = -doubleWorldHeight; y <= doubleWorldHeight; y+= cellSize) {
             renderer.line(-doubleWorldWidth, y, doubleWorldWidth, y);
         }
 
@@ -57,10 +57,15 @@ public class ViewportUtils {
 
         // Drawing world bounds
         renderer.setColor(Color.GREEN);
-        renderer.line(-doubleWorldWidth, -doubleWorldHeight, doubleWorldWidth, -doubleWorldHeight);
-        renderer.line(-doubleWorldWidth, doubleWorldHeight, doubleWorldWidth, doubleWorldHeight);
-        renderer.line(-doubleWorldWidth, doubleWorldHeight, -doubleWorldWidth, -doubleWorldHeight);
-        renderer.line(doubleWorldWidth, doubleWorldHeight, doubleWorldWidth, -doubleWorldHeight);
+        renderer.line(0f, worldHeight, worldWidth, worldHeight);
+        renderer.line(0f, 0f, worldWidth, 0f);
+        renderer.line(0f, worldHeight, 0f, 0f);
+        renderer.line(worldWidth, worldHeight, worldWidth, 0f);
+
+//        renderer.line(-doubleWorldWidth, -doubleWorldHeight, doubleWorldWidth, -doubleWorldHeight);
+//        renderer.line(-doubleWorldWidth, doubleWorldHeight, doubleWorldWidth, doubleWorldHeight);
+//        renderer.line(-doubleWorldWidth, doubleWorldHeight, -doubleWorldWidth, -doubleWorldHeight);
+//        renderer.line(doubleWorldWidth, doubleWorldHeight, doubleWorldWidth, -doubleWorldHeight);
 
         renderer.end();
 
