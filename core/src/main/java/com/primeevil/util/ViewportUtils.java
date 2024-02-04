@@ -28,7 +28,7 @@ public class ViewportUtils {
             cellSize = DEFAULT_CELL_SIZE;
         }
 
-        // Get copy from renderer
+        // Get color copy from renderer
         Color oldColor = new Color(renderer.getColor());
 
         int worldWidth = (int) viewport.getWorldWidth();
@@ -61,11 +61,6 @@ public class ViewportUtils {
         renderer.line(0f, 0f, worldWidth, 0f);
         renderer.line(0f, worldHeight, 0f, 0f);
         renderer.line(worldWidth, worldHeight, worldWidth, 0f);
-
-//        renderer.line(-doubleWorldWidth, -doubleWorldHeight, doubleWorldWidth, -doubleWorldHeight);
-//        renderer.line(-doubleWorldWidth, doubleWorldHeight, doubleWorldWidth, doubleWorldHeight);
-//        renderer.line(-doubleWorldWidth, doubleWorldHeight, -doubleWorldWidth, -doubleWorldHeight);
-//        renderer.line(doubleWorldWidth, doubleWorldHeight, doubleWorldWidth, -doubleWorldHeight);
 
         renderer.end();
 
