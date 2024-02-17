@@ -6,7 +6,7 @@ This project was generated with a template including simple application launcher
 
 ## ScreenShot
 
-![img.png](img.png | width=100)
+<img src="img.png" height="940">
 
 ## Platforms
 
