@@ -6,7 +6,7 @@ This project was generated with a template including simple application launcher
 
 ## ScreenShot
 
-![img.png](img.png)
+![img.png](img.png | width=100)
 
 ## Platforms
 
