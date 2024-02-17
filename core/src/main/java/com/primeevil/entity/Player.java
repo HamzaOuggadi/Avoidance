@@ -13,9 +13,11 @@ public class Player extends GameObject<Circle> {
 
     public Player() {
         bounds = new Circle(x, y, BOUNDS_RADIUS);
+        setSize(SIZE, SIZE);
     }
 
     public void drawDebug(ShapeRenderer renderer) {
+        renderer.x(bounds.x, bounds.y, 0.1f);
         renderer.circle(bounds.x, bounds.y, bounds.radius, 36);
     }
 

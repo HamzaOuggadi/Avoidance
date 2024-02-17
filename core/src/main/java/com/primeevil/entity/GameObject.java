@@ -6,6 +6,8 @@ public abstract class GameObject<T extends Shape2D> {
 
     protected float x;
     protected float y;
+    protected float width;
+    protected float height;
 
     protected T bounds;
 
@@ -25,12 +27,25 @@ public abstract class GameObject<T extends Shape2D> {
         return y;
     }
 
+    public float getWidth() {
+        return width;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
     public void setX(float x) {
         this.x = x;
     }
 
     public void setY(float y) {
         this.y = y;
+    }
+
+    public void setSize(float width, float height) {
+        this.width = width;
+        this.height = height;
     }
 
     public T getBounds() {
@@ -40,4 +55,5 @@ public abstract class GameObject<T extends Shape2D> {
     public void setBounds(T bounds) {
         this.bounds = bounds;
     }
+
 }

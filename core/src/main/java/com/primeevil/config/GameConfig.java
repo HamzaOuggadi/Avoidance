@@ -21,6 +21,11 @@ public class GameConfig {
     public static final float DEFAULT_SPAWN_TIME = 0.5f;
 
     public static final int LIVES_START = 3;
+    public static final float SCORE_MAX_TIME = 1.25f;
+
+    public static final float EASY_OBSTACLE_SPEED = 0.05f;
+    public static final float NORMAL_OBSTACLE_SPEED = 0.15f;
+    public static final float HARD_OBSTACLE_SPEED = 0.20f;
 
     private GameConfig() {
 

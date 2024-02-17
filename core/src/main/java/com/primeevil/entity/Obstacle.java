@@ -1,23 +1,26 @@
 package com.primeevil.entity;
 
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
-import com.primeevil.config.GameConfig;
-import com.primeevil.util.Destroyer;
+import com.badlogic.gdx.utils.Pool;
 
-public class Obstacle extends GameObject<Rectangle> {
+public class Obstacle extends GameObject<Rectangle> implements Pool.Poolable {
 
-    private static final float SIDE_LENGTH = 1.0f;
+    public static final float SIDE_LENGTH = 1.0f;
     private static final float MAX_Y_SPEED = 0.05f;
 
+    private float ySpeed;
+
+    private boolean hit;
 
     public Obstacle() {
         bounds = new Rectangle(x, y, SIDE_LENGTH, SIDE_LENGTH);
+        setSize(SIDE_LENGTH, SIDE_LENGTH);
     }
 
     public void drawDebug(ShapeRenderer renderer) {
+        renderer.x(bounds.x, bounds.y, 0.1f);
         renderer.rect(bounds.x, bounds.y, bounds.width, bounds.height);
     }
 
@@ -28,7 +31,7 @@ public class Obstacle extends GameObject<Rectangle> {
     }
 
     public void update() {
-        setPosition(x, y - MAX_Y_SPEED);
+        setPosition(x, y - ySpeed);
     }
 
     public void updateBounds() {
@@ -41,6 +44,21 @@ public class Obstacle extends GameObject<Rectangle> {
 
 
     public boolean isPlayerColliding(Player player) {
-        return Intersector.overlaps(player.getBounds(), this.getBounds());
+        boolean overlap = Intersector.overlaps(player.getBounds(), this.getBounds());
+        hit = overlap;
+        return overlap;
+    }
+
+    public boolean isNotHit() {
+        return !hit;
+    }
+
+    public void setYSpeed(float ySpeed) {
+        this.ySpeed = ySpeed;
+    }
+
+    @Override
+    public void reset() {
+        hit = false;
     }
 }
